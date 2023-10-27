@@ -4,9 +4,9 @@ const path = require('path');
 
 
 
-router.get("/", (req, res) => res.json({message : "Hello This is grid Demo"}))
+router.get("/hello", (req, res) => res.json({message : "Hello This is grid Demo"}))
 
-router.get("/grid", (req, res) => {
+router.get("/", (req, res) => {
     res.set('Content-Type', 'text/html');
     res.sendFile(path.join(path.join(__dirname+'/../pages/index.html')));
 })
