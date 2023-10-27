@@ -1,22 +1,26 @@
 // const Handsontable = require('handsontable');
-
-// const styleFile = require('handsontable/dist/handsontable.full')
-
+//const styleFile = require('handsontable/dist/handsontable.full');
 
 const express = require('express');
 const router = require('./routes/router');
 const path = require('path');
+const compression = require('compression');
 
 const app = express();
 
-const PORT = process.env.PORT || 8000
-app.use('/static', express.static(path.join(__dirname, 'public')))
+// Add Middleware
+
+// Added to improve performance of Application by compressing content
+app.use(compression());
+
+// Addedd a virtual 'static' folder linked with 'public' folder to serve static content
+app.use('/static', express.static(path.join(__dirname, 'public')));
+
+// Added custom router component to server all content 
 app.use("/", router);
 
-// app.use(express.static('public'))
+// Configure Default Port of App
+const PORT = process.env.PORT || 8000;
 
-// app.use(express.static('style')) # Multiple Fonders Can be Made Public
-// app.use(express.static('js')) // client Side JS files
-
-
-app.listen(PORT, () => console.log(`Server is running at port ${PORT}`))
+// Start Server
+app.listen(PORT, () => console.log(`Server is running at port ${PORT}`));
