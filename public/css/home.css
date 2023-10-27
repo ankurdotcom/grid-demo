@@ -1,0 +1,11 @@
+.btn-container{
+    display: flex;
+}
+
+.btn-container.space-around {
+    justify-content: space-around;
+  }
+
+  .btn-container.space-between {  
+    justify-content: space-between;
+  }

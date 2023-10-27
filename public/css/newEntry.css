@@ -1,0 +1,16 @@
+.frm-container{
+    display: flex;
+    text-align: center;
+    margin: auto;
+    display: table;
+    
+}
+
+.frm-field {
+    display: flex;
+}
+
+
+.frm-btn {
+    display: flex;
+}
